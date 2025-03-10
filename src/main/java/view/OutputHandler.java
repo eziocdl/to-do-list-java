@@ -1,8 +1,10 @@
 package view;
 
+import model.ListaTarefas;
+
 import java.util.List;
 
-public class OutputHandler {
+public class OutputHandler implements ListaTarefasObserver {
 
     public void exibirMensagem(String mensagem) {
         System.out.println(mensagem);
@@ -29,4 +31,11 @@ public class OutputHandler {
 
         }
 
+
+
+    @Override
+    public void atualizar(ListaTarefas listaTarefas) {
+        exibirListaTarefas(listaTarefas);
+
+    }
 }

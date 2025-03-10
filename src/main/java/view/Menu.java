@@ -46,7 +46,7 @@ public class Menu {
 
     private void exibirOpcoesMenu() {
         System.out.println("\n---Lista de Tarefas---");
-        System.out.print("Escolha uma opção:");
+        System.out.println("Escolha uma opção:");
         System.out.println(ADICIONAR_TAREFA + ". Adicionar uma tarefa");
         System.out.println(REMOVER_TAREFA + ". Remover tarefa");
         System.out.println(LISTAT_TAREFAS + ". Listar tarefas");
@@ -60,6 +60,7 @@ public class Menu {
         while (true) {
             if (scanner.hasNextInt()) {
                 opcao = scanner.nextInt();
+                scanner.nextLine(); // Adicionado: Limpa o buffer do scanner
                 if (validator.opcaoMenuValida(opcao, ADICIONAR_TAREFA, SAIR)) {
                     break;
                 } else {
@@ -71,11 +72,9 @@ public class Menu {
                 scanner.next();
                 System.out.print("Escolha uma opção: "); // Repete o prompt
             }
-            scanner.nextLine(); // Limpa o buffer do scanner
         }
         return opcao;
     }
-
     public void fecharScanner() {
         scanner.close();
     }

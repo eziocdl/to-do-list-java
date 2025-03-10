@@ -37,20 +37,33 @@ public class InputHandler {
         // aceita uma chamada String e retorna um número inteiro
         // Essa chamada ao método genérico passando uma mensagem e uma ref ao método validarInteiro
         // usa o input Validator
-        return lerEntrada(mensagem, () -> validator.inteiroValido(scanner.nextLine()));
+
+            System.out.println(mensagem);
+            while (true) {
+                String input = scanner.nextLine();
+                try {
+                    int numero = Integer.parseInt(input);
+                    return numero;
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrada inválida. Digite um número inteiro.");
+                    System.out.println(mensagem);
+                }
+            }
+
     }
 
 
     // Método genérico de ler entradas
     private int lerEntrada(String mensagem, Validacao validacao) {
         System.out.println(mensagem);
-        String input;
+
         while (true) {
-            input = scanner.nextLine();
+
+            String input = scanner.nextLine(); // Correção: ler a linha inteira
             if (validacao.isValido()) {
-                try{
-                    return Integer.parseInt(input);
-                } catch(NumberFormatException e) {
+                try {
+                    return Integer.parseInt(input); // Converter a linha inteira
+                } catch (NumberFormatException e) {
                     System.out.println("Entrada inválida. Digite um número inteiro.");
                     System.out.println(mensagem);
                 }
@@ -65,8 +78,7 @@ public class InputHandler {
         return scanner.hasNextInt();
     }
 
-    private void fecharScanner()
-    {
+    public void fecharScanner() {
         scanner.close();
     }
 
