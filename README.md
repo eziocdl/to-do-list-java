@@ -56,7 +56,7 @@ Este é um aplicativo de linha de comando simples para gerenciamento de listas d
    ```
 3️⃣ Execute a classe `Main`:  
    ```bash
-   java -cp bin io.github.eziocdl.Main
+   java -cp bin application.Main
    ```
 
 ## Contribuição
