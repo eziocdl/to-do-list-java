@@ -1,4 +1,4 @@
-package io.github.eziocdl;
+package application;
 
 import controller.Controller;
 
